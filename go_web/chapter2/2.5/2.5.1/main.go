@@ -23,7 +23,7 @@ func multiTemplate(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	mux := http.NewServeMux()
-	mux.HandleFunc("/", index)
+	mux.HandleFunc("/index", index)
 	mux.HandleFunc("/tmpl", multiTemplate)
 
 	server := &http.Server{
