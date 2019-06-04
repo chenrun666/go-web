@@ -28,9 +28,19 @@ func index(w http.ResponseWriter, r *http.Request) {
 	generateHTML(w, "", "layout", "navbar", "content")
 }
 
+// 增加模版展示
+func templateExample(w http.ResponseWriter, r *http.Request) {
+	var files []string
+	files = append(files, "./templates/example.html", "./templates/layout.html")
+
+	t := template.Must(template.ParseFiles("./templates/layout.html"))
+	t.Execute(w, nil)
+}
+
 func main() {
 	mux := http.NewServeMux()
-	mux.HandleFunc("/", index)
+	mux.HandleFunc("/index", index)
+	mux.HandleFunc("/templates", templateExample)
 
 	server := &http.Server{
 		Addr:    ":8080",
