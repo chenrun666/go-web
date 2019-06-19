@@ -70,9 +70,8 @@ func insertUser(db *sql.DB) {
 	if err != nil {
 		fmt.Println(err)
 		return
-	} else {
-		fmt.Println("insert into users success !!!")
 	}
+	fmt.Println("insert into users success !!!")
 
 }
 
